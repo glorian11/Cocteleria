@@ -7,10 +7,13 @@ const letter = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M',
 
 
 
-const buscar = () => {
+const buscar = async() => {
+  contenedor.innerHTML = 'Cargando...';
     fetch(`https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${input.value}`)
     .then(response => response.json())
     .then(data => {
+      contenedor.innerHTML = '';
+      console.log(data);
       showData(data);
     })
     .catch(error => console.log(error));
@@ -18,16 +21,18 @@ const buscar = () => {
 
 
 
-const showData = (data) => {
+const showData = async(data) => {
+
   if (data.drinks === null) {
     contenedor.innerHTML = 'No se encontraron resultados';
     return;
   }
   else if (data.drinks.length === 1) {
-    contenedor.innerHTML = `
-      <img src="${data.drinks[0].strDrinkThumb}" alt="${data.drinks[0].strDrink}">
-      <h2>${data.drinks[0].strDrink}</h2>
-    `;
+    
+    const img = document.createElement('img');
+    img.src = data.drinks[0].strDrinkThumb;
+    img.alt = data.drinks[0].strDrink;
+    contenedor.appendChild(img);
     return;
   }
   for (let i = 0; i < data.drinks.length; i++) {
@@ -51,15 +56,63 @@ const showData = (data) => {
     contenedor.appendChild(li);
   }
 }
-const showDetailedData = (data) => {
-  contenedor.innerHTML = `
-    <img src="${data.drinks[0].strDrinkThumb}" alt="${data.drinks[0].strDrink}">
-    <h2>${data.drinks[0].strDrink}</h2>
-    <p>${data.drinks[0].strInstructions}</p>
-  `;
+const showDetailedData =async(data) => {
+  contenedor.innerHTML = '';
+  console.log(data);
+  const imgDrink = document.createElement('img');
+  imgDrink.src = data.drinks[0].strDrinkThumb;
+  imgDrink.alt = data.drinks[0].strDrink;
+  contenedor.appendChild(imgDrink);
+
+  const h2Drink = document.createElement('h2');
+  h2Drink.textContent = data.drinks[0].strDrink;
+  contenedor.appendChild(h2Drink);
+
+  if (data.drinks[0].strAlcoholic === 'Alcoholic') {
+    const pAlcohol = document.createElement('p');
+    pAlcohol.textContent = 'Alcoholico';
+    contenedor.appendChild(pAlcohol);
+  } else {
+    const pAlcohol = document.createElement('p');
+    pAlcohol.textContent = 'No Alcoholico';
+    contenedor.appendChild(pAlcohol);
+  }
+  const ingredients = [];
+  for (let i = 1; i <= 15; i++) {
+    const ingredientProperty = `strIngredient${i}`;
+    if (data.drinks[0][ingredientProperty] !== null) {
+      ingredients.push(data.drinks[0][ingredientProperty]);
+      console.log(data.drinks[0][ingredientProperty]);
+    }
+  }
+
+  ingredients.forEach((ingredient) => {
+    fetch(`https://www.thecocktaildb.com/api/json/v1/1/search.php?i=${ingredient}`)
+      .then(response => response.json())
+      .then(data => {
+        console.log(data);
+        const ingredientData = data.ingredients[0];
+        const imgIngredient = document.createElement('img');
+        const imageUrl = `https://www.thecocktaildb.com/images/ingredients/${ingredient}-Medium.png`;
+        imgIngredient.src = imageUrl;
+        imgIngredient.alt = ingredientData.strIngredient;
+        imgIngredient.onerror = () => {
+          imgIngredient.src = 'placeholder-image.png'; // Replace with a placeholder image
+        };
+        contenedor.appendChild(imgIngredient);
+        const pIngredient = document.createElement('p');
+        pIngredient.textContent = ingredientData.strIngredient;
+        contenedor.appendChild(pIngredient);
+      })
+      .catch(error => console.log(error));
+  });
+
+  const pDrink = document.createElement('p');
+  pDrink.textContent = data.drinks[0].strInstructions;
+  contenedor.appendChild(pDrink);
 }
 
-const getLetter = () => {
+const getLetter = async() => {
   for (let i = 0; i < 26; i++) {
     letter += letter[i];
   }
@@ -76,11 +129,12 @@ const ABC = () => {
 
 ABC();
 
-browser.addEventListener('click', (e) => {
+browser.addEventListener('click', async (e) => {
   fetch(`https://www.thecocktaildb.com/api/json/v1/1/search.php?f=${e.target.textContent}`)
   .then(response => response.json())
   .then(data => {
     console.log(data);
+    contenedor.innerHTML = '';
     showData(data);
   })
   .catch(error => console.log(error));
