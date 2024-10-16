@@ -2,6 +2,9 @@ const buscador = document.querySelector('#buscador');
 const contenedor = document.querySelector('#contenedor'); 
 const form = document.querySelector('#form');
 const input = document.querySelector('#input');
+const browser = document.querySelector('#browser');
+const letter = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z']
+
 
 
 const buscar = () => {
@@ -55,6 +58,36 @@ const showDetailedData = (data) => {
     <p>${data.drinks[0].strInstructions}</p>
   `;
 }
+
+const getLetter = () => {
+  for (let i = 0; i < 26; i++) {
+    letter += letter[i];
+  }
+  return letter;
+  }
+
+const ABC = () => {
+  letter.forEach(letter => { 
+    const boton = document.createElement('button');
+    boton.textContent = letter;
+    browser.appendChild(boton);
+  })
+}
+
+ABC();
+
+browser.addEventListener('click', (e) => {
+  fetch(`https://www.thecocktaildb.com/api/json/v1/1/search.php?f=${e.target.textContent}`)
+  .then(response => response.json())
+  .then(data => {
+    console.log(data);
+    showData(data);
+  })
+  .catch(error => console.log(error));
+  
+})
+
+
 
 buscador.addEventListener('click', (buscar))
 
