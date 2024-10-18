@@ -2,23 +2,25 @@
 
 
 export async function buscar() {
-    const form = document.querySelector('#form');
-const input = document.querySelector('#input');
-    contenedor.innerHTML = 'Cargando...';
-    fetch(`https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${input.value}`)
-      .then(response => response.json())
-      .then(data => {
-        contenedor.innerHTML = '';
-        console.log(data);
-        showData(data);
-      })
-      .catch(error => console.log(error));
-  }
-
+  console.log('Buscar function called');
+  const form = document.querySelector('#form');
+  const input = document.querySelector('#input');
+  contenedor.innerHTML = 'Cargando...';
+  fetch(`https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${input.value}`)
+    .then(response => response.json())
+    .then(data => {
+      console.log('Data received:', data);
+      contenedor.innerHTML = '';
+      console.log(data);
+      showData(data);
+    })
+    .catch(error => console.log('Error:', error));
+}
 
   export async function showData(data) {
    console.log(data);
-    if (data.drinks === null) {
+   
+    if (data.drinks == null) {
       contenedor.innerHTML = 'No se encontraron resultados';
       return;
     }

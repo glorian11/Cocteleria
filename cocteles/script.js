@@ -1,7 +1,8 @@
-const buscador = document.querySelector('#buscador');
+const buscadorButton = document.querySelector('.buscador #buscador');
+const form = document.querySelector('#form');
 const contenedor = document.querySelector('#contenedor'); 
-
 const browser = document.querySelector('#browser');
+console.log(buscadorButton);
 
 import { showData } from "./utils/buscador por nombre.js";
 import { buscar } from "./utils/buscador por nombre.js";
@@ -18,10 +19,13 @@ browser.addEventListener('click', async (e) => {
     showData(data);
   })
   .catch(error => console.log(error));
-  
-})
+  })
 
-buscador.addEventListener('click', (buscar))
+
+  buscadorButton.addEventListener('click', async (e) => {
+    e.preventDefault();
+    await buscar();
+  });
 
 
 
