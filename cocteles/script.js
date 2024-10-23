@@ -25,7 +25,7 @@ browser.addEventListener('click', async (e) => {
   
 })
 
-buscador.addEventListener('click', (buscar))
+buscador.addEventListener('click', (buscar));
 
 
 
