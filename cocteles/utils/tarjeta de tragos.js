@@ -1,18 +1,17 @@
 
+import { showDetailedData } from "./buscador por nombre.js";
 
-
-
-export const popularDrinks = async () => {
+export const popularDrinks = () => {
     const card = document.querySelector('.tarjeta');
-    const idDrink = ['11001 ','11002','11003','11004','11005', '11006', '11007','11008'];
-
+    const idDrink = ['11001 ', '11002', '11003', '11004', '11005', '11006', '11007', '11008'];
+  
     idDrink.forEach(id => {
-        fetch(`https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=${id}`)
+      fetch(`https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=${id}`)
         .then(response => response.json())
         .then(data => {
-          const tragos = data.drinks
-          tragos.forEach(trago => {
-            
+          
+          const trago = data.drinks[0];
+          
             const tragoElement = document.createElement('div');
             tragoElement.classList.add('trago');
             card.appendChild(tragoElement);
@@ -22,10 +21,16 @@ export const popularDrinks = async () => {
             imgElement.classList.add('trago__imagen');
             tragoElement.textContent = trago.strDrink;
             tragoElement.appendChild(imgElement);
-          });
+
+            
+            tragoElement.addEventListener('click', () => {
+                showDetailedData(trago);
+                
+              });
+          })
+          .catch(error => console.log(error));
         })
-        .catch(error => console.log(error));
-    })
-    
-}
+        
+    };
+  
 

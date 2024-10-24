@@ -1,5 +1,7 @@
 const buscador = document.querySelector('#buscador');
 const contenedor = document.querySelector('#contenedor'); 
+const tarjeta = document.querySelector('.tarjeta');
+const logo = document.querySelector('.logo');
 
 const browser = document.querySelector('#browser');
 import { popularDrinks } from "./utils/tarjeta de tragos.js";
@@ -14,6 +16,8 @@ ABC();
 
 
 browser.addEventListener('click', async (e) => {
+
+  tarjeta.innerHTML = '';
   fetch(`https://www.thecocktaildb.com/api/json/v1/1/search.php?f=${e.target.textContent}`)
   .then(response => response.json())
   .then(data => {
@@ -26,6 +30,9 @@ browser.addEventListener('click', async (e) => {
 })
 
 buscador.addEventListener('click', (buscar));
+logo.addEventListener('click', (e) => {
+ location.reload();
+})
 
 
 
