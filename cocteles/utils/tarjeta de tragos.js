@@ -24,7 +24,7 @@ export const popularDrinks = () => {
 
             
             tragoElement.addEventListener('click', () => {
-                showDetailedData(trago);
+                showDetailedData(data);
                 
               });
           })

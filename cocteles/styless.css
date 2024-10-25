@@ -88,6 +88,7 @@ header {
     text-align: center;
     border-color: #be0202;
     border-radius: auto;
+    margin-top: 100px;
   }
 
   
@@ -222,5 +223,17 @@ header {
       font-size: 36px;
       color: #3d0404;
       text-align: center;
+    }
+
+    #popular {
+      font-family: 'Retro Monkey';
+      font-size: 36px;
+      color: #3d0404;
+      text-align: center;
+
+      grid-column-start:2 ;
+      grid-column-end:3;
+      grid-row-start: 2 ;
+      grid-row-end: 3 ;
     }
 
