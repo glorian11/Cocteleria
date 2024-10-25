@@ -2,7 +2,7 @@
 import { showDetailedData } from "./buscador por nombre.js";
 
 export const popularDrinks = () => {
-    const card = document.querySelector('.tarjeta');
+    const card = document.querySelector('.tarjeta1');
     const idDrink = ['11001 ', '11002', '11003', '11004', '11005', '11006', '11007', '11008'];
   
     idDrink.forEach(id => {
@@ -33,4 +33,7 @@ export const popularDrinks = () => {
         
     };
   
+
+
+       
 

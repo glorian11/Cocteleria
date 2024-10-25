@@ -1,7 +1,7 @@
 body {
   display: grid;
   grid-template-columns: 1fr 4fr 1fr; 
-  grid-template-rows: 1fr 4fr 4fr  1fr;
+  grid-template-rows: 1fr 4fr 4fr 4fr 4fr  1fr ;
   background-color: #610c0c;
   }
 
@@ -125,19 +125,7 @@ header {
     margin-bottom: 20px;
   }
   
-  #contenedor div h2::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-image: url('https://example.com/pergamino-textura.png');
-    background-size: 200px 200px;
-    background-position: center;
-    opacity: 0.2;
-    z-index: -1;
-  }
+
 
   
 
@@ -181,7 +169,7 @@ header {
     transform: translateY(2px);
   }
 
-  .tarjeta {
+  .tarjeta1 {
     grid-column-start: 2;
     grid-column-end: 3;
     grid-row-start: 2;
@@ -193,7 +181,30 @@ header {
     grid-gap: 20px;
     
   }
-
+  .tarjeta2 {
+    grid-column-start: 2;
+    grid-column-end: 3;
+    grid-row-start: 3;
+    grid-row-end: 4;
+  
+    column-gap: 100px;
+    display: grid;
+    grid-template: 1fr 1fr / 1fr 1fr 1fr 1fr;
+    grid-gap: 20px;
+    
+  }
+  .tarjeta3 {
+    grid-column-start: 2;
+    grid-column-end: 3;
+    grid-row-start: 4;
+    grid-row-end: 5;
+  
+    column-gap: 100px;
+    display: grid;
+    grid-template: 1fr 1fr / 1fr 1fr 1fr 1fr;
+    grid-gap: 20px;
+    
+  }
   .trago__imagen {
     width: 100%;
     height: 100%;
@@ -223,6 +234,7 @@ header {
       font-size: 36px;
       color: #3d0404;
       text-align: center;
+      text-shadow: #e0e073 1px 1px 2px;
     }
 
     #popular {
@@ -230,10 +242,13 @@ header {
       font-size: 36px;
       color: #3d0404;
       text-align: center;
+      text-shadow: #e0e073 1px 1px 2px;
 
       grid-column-start:2 ;
       grid-column-end:3;
       grid-row-start: 2 ;
       grid-row-end: 3 ;
     }
+
+
 
