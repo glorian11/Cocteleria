@@ -89,10 +89,11 @@ header {
     border-color: #be0202;
     border-radius: auto;
     margin-top: 100px;
+    gap: 20px;
   }
 
   
-
+  
 
   
   #contenedor div {
@@ -213,7 +214,15 @@ header {
   }
 
   .trago {
+    display: grid;
+    grid-template-rows: 1fr 5fr;
     text-align: center;
+    text-size-adjust: fixed;
+    font-family: 'Retro Monkey';
+    font-size: 36px;
+    color: #3d0404;
+    text-align: center;
+    text-shadow: #e0e073 1px 1px 2px;
     }
 
     @font-face {
@@ -252,3 +261,4 @@ header {
 
 
 
+    

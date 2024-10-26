@@ -34,6 +34,32 @@ export const popularDrinks = () => {
     };
   
 
+export const randomDrinks = () => {
+    const card = document.querySelector('.tarjeta2');
+    
+    for(let i = 0; i < 8; i++){
+        fetch(`https://www.thecocktaildb.com/api/json/v1/1/random.php`)
+        .then(response => response.json())
+        .then(data => {
+            const trago = data.drinks[0];
+            const tragoElement = document.createElement('div');
+            tragoElement.classList.add('trago');
+            card.appendChild(tragoElement);
+            const imgElement = document.createElement('img');
+            imgElement.src = trago.strDrinkThumb;
+            imgElement.alt = trago.strDrink;
+            imgElement.classList.add('trago__imagen');
+            tragoElement.textContent = trago.strDrink;
+            tragoElement.appendChild(imgElement);
+            tragoElement.addEventListener('click', () => {
+                showDetailedData(data);
+              });
+          })
+          .catch(error => console.log(error));
+        }
+    };
 
+
+    
        
 
