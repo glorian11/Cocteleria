@@ -3,13 +3,8 @@
 
 export async function buscar(e) {
   e.preventDefault();
-  const tarjeta = document.querySelector('.tarjeta1');
-  const tarjeta2 = document.querySelector('.tarjeta2');
-  const tarjeta3 = document.querySelector('.tarjeta3');
-
-  tarjeta.innerHTML = '';
-  tarjeta2.innerHTML = '';
-  tarjeta3.innerHTML = '';
+  const contenedor = document.querySelector('#contenedor');
+  contenedor.innerHTML = '';
   
   console.log('Buscar function called');
   const form = document.querySelector('#form');

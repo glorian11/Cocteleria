@@ -10,6 +10,7 @@ import { popularDrinks, randomDrinks } from "./utils/tarjeta de tragos.js";
 import { showData } from "./utils/buscador por nombre.js";
 import { buscar } from "./utils/buscador por nombre.js";
 import { ABC } from "./utils/buscador por letra.js";
+import { snow } from "./utils/snow.js";
 
 
  popularDrinks();
@@ -18,6 +19,7 @@ randomDrinks();
 
 
 ABC();
+snow();
 
 
 

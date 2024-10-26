@@ -8,6 +8,7 @@ body {
 
 
 header {
+  position: sticky;
     grid-column-start: 1;
     grid-column-end: 4;
     grid-row-start: 1;
@@ -259,6 +260,47 @@ header {
       grid-row-end: 3 ;
     }
 
-
-
+    .snow-container {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: -1;
+    }
     
+    .snow {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: radial-gradient(rgb(148, 37, 37), rgba(37, 141, 45, 0));
+      background-position: 0% 0%;
+      animation: rgb(163, 150, 150) 10s linear infinite;
+    }
+    .snowflake {
+      position: absolute;
+      width: 10px;
+      height: 10px;
+      background-color: white;
+      border-radius: 50%;
+      animation: fall 5s linear infinite;
+    }
+    @keyframes snow {
+      0% {
+        background-position: 0% 0%;
+      }
+      100% {
+        background-position: 100% 100%;
+      }
+    }
+    @keyframes fall {
+      0% {
+        transform: translateY(0);
+      }
+      100% {
+        transform: translateY(100vh);
+      }
+    }
