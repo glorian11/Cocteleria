@@ -14,5 +14,5 @@ function createSnowflake() {
   snow.appendChild(snowflake);
 }
 
-setInterval(createSnowflake, 100);
+setInterval(createSnowflake, 800);
 }
