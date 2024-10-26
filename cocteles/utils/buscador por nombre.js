@@ -64,12 +64,14 @@ export async function buscar(e) {
     
     contenedor.innerHTML = '';
     const pergamino = document.createElement('div');
+    const ingredientes = document.createElement('div');
+    ingredientes.classList.add('ingredientes');
     
     console.log(data);
     const imgDrink = document.createElement('img');
     imgDrink.src = data.drinks[0].strDrinkThumb;
     imgDrink.alt = data.drinks[0].strDrink;
-    contenedor.appendChild(imgDrink);
+    
     
     
 
@@ -77,6 +79,7 @@ export async function buscar(e) {
     const h2Drink = document.createElement('h2');
     h2Drink.textContent = data.drinks[0].strDrink;
     pergamino.appendChild(h2Drink);
+    pergamino.appendChild(imgDrink);
 
     
     contenedor.appendChild(pergamino);
@@ -112,15 +115,17 @@ export async function buscar(e) {
           imgIngredient.onerror = () => {
             imgIngredient.src = 'placeholder-image.png'; // Replace with a placeholder image
           };
-          contenedor.appendChild(imgIngredient);
+          ingredientes.appendChild(imgIngredient);
           const pIngredient = document.createElement('p');
           pIngredient.textContent = ingredientData.strIngredient;
-          contenedor.appendChild(pIngredient);
+          ingredientes.appendChild(pIngredient);
         })
         .catch(error => console.log(error));
     });
-  
+    
     const pDrink = document.createElement('p');
     pDrink.textContent = data.drinks[0].strInstructions;
     pergamino.appendChild(pDrink);
+
+    pergamino.appendChild(ingredientes);
   }

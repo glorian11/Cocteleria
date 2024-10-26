@@ -282,10 +282,12 @@ header {
     }
     .snowflake {
       position: absolute;
-      width: 10px;
-      height: 10px;
-      background-color: white;
-      border-radius: 50%;
+      width: 100px;
+      height: 100px;
+      
+background-image: url('utils/cubito-removebg-preview.png');
+
+      background-size: cover;
       animation: fall 5s linear infinite;
     }
     @keyframes snow {
@@ -303,4 +305,9 @@ header {
       100% {
         transform: translateY(100vh);
       }
+    }
+
+    .ingredientes {
+    display: flex;
+    flex-direction: row;
     }
