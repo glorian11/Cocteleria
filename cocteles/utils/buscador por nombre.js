@@ -23,6 +23,8 @@ export async function buscar(e) {
 
   export async function showData(data) {
    console.log(data);
+    const contenedor = document.querySelector('#contenedor');
+    contenedor.innerHTML = '';
    
     if (data.drinks == null) {
       contenedor.innerHTML = 'No se encontraron resultados';
@@ -99,6 +101,7 @@ export async function buscar(e) {
       if (data.drinks[0][ingredientProperty] !== null) {
         ingredients.push(data.drinks[0][ingredientProperty]);
         console.log(data.drinks[0][ingredientProperty]);
+
       }
     }
   
@@ -119,6 +122,14 @@ export async function buscar(e) {
           const pIngredient = document.createElement('p');
           pIngredient.textContent = ingredientData.strIngredient;
           ingredientes.appendChild(pIngredient);
+          imgIngredient.addEventListener('click', () => {
+            fetch(`https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=${ingredient}`)
+              .then(response => response.json())
+              .then(data => {
+                showData(data);
+              })
+              .catch(error => console.log(error));
+          })
         })
         .catch(error => console.log(error));
     });

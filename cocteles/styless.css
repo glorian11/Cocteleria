@@ -112,6 +112,8 @@ header {
   }
 
 
+
+
   #contenedor div h2{
     background-image: linear-gradient(to bottom, #f5f5dc, #fff);
     background-attachment: fixed;
@@ -226,6 +228,14 @@ header {
     text-shadow: #e0e073 1px 1px 2px;
     }
 
+    .trago:hover {
+      transform: scale(1.1) rotate(10deg);
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+      background-color: #ccc;
+      color: #fff;
+      transition: all 0.3s ease-in-out;
+    }
+
     @font-face {
       font-family: 'Retro Monkey';
       src: url('utils/RetroMonkey-Italic.eot');
@@ -315,7 +325,4 @@ background-image: url('utils/cubito-removebg-preview.png');
         transform: translateY(100vh) rotate(360deg);
       }
     }
-    .ingredientes {
-    display: flex;
-    flex-direction: row;
-    }
+   

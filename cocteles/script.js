@@ -4,6 +4,8 @@ const tarjeta = document.querySelector('.tarjeta1');
 const tarjeta2 = document.querySelector('.tarjeta2');
 const tarjeta3 = document.querySelector('.tarjeta3');
 const logo = document.querySelector('.logo');
+const audioPlayer = document.getElementById('audioPlayer');
+
 
 const browser = document.querySelector('#browser');
 import { popularDrinks, randomDrinks } from "./utils/tarjeta de tragos.js";
@@ -16,7 +18,7 @@ import { snow } from "./utils/snow.js";
  popularDrinks();
 
 randomDrinks();
-
+audioPlayer.play();
 
 ABC();
 snow();

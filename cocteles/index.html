@@ -1,45 +1,39 @@
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cocteleria</title>
-    <link rel="stylesheet" href="styless.css">
-    
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cocteleria</title>
+  <link rel="stylesheet" href="styless.css">
 </head>
-<div class="snow-container">
+<body>
+  <div class="snow-container">
     <div class="snow"></div>
   </div>
   <header>
-
     <div class="logo">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/1/16/Faux_Neon_Cocktails_Sign.svg" alt="">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/1/16/Faux_Neon_Cocktails_Sign.svg" alt="">
     </div>
     <h1 class="title">Bienvenido a tu Biblioteca de Cocteles</h1>
     <div class="buscador">
-
-        <form action="" id="form">
-            <input type="text" id="input">
-            <button id="buscador">Buscar</button>
-        </form>
+      <form action="" id="form">
+        <input type="text" id="input">
+        <button id="buscador">Buscar</button>
+      </form>
     </div>
-</header>
-<body>
-    
-
-    
-    
-    <div id="contenedor">
-        <h2 id="popular">Popular Drinks</h2>
-        <div class="tarjeta1"></div>
-        <h2 id="popular">Random Drinks</h2>
-        <div class="tarjeta2"></div>
-        <h2 id="popular">Popular Ingredients</h2>
-        <div class="tarjeta3" ></div>
+  </header>
+  <audio id="audioPlayer" src="utils/Big Poppa (Explicit).mp3" autoplay></audio>
+  <div id="contenedor">
+    <h2 id="popular">Popular Drinks</h2>
+    <div class="tarjeta1"></div>
+    <h2 id="popular">Random Drinks</h2>
+    <div class="tarjeta2"></div>
+    <h2 id="popular">Popular Ingredients</h2>
+    <div class="tarjeta3" ></div>
+  </div>
+  <footer>
+    <div id="browser">
     </div>
-    <footer>
-        <div id="browser">
-        </div>
-    </footer>
-    <script type="module" src="script.js"></script>
+  </footer>
+  <script type="module" src="script.js"></script>
 </body>
 </html>
