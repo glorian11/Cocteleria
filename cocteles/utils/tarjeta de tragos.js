@@ -1,5 +1,6 @@
 
 import { showDetailedData } from "./buscador por nombre.js";
+import { showData } from "./buscador por nombre.js";
 
 export const popularDrinks = () => {
     const card = document.querySelector('.tarjeta1');
@@ -61,5 +62,53 @@ export const randomDrinks = () => {
 
 
     
-       
+    export const randomIngredient = () => {
+        const card = document.querySelector('.tarjeta3');
+        const ingredientes = new Set(); // Utiliza un conjunto para almacenar los ingredientes
+      
+        const fetchIngredient = () => {
+          fetch(`https://www.thecocktaildb.com/api/json/v1/1/list.php?i=list`)
+            .then(response => response.json())
+            .then(data => {
+              const ingredientesList = data.drinks;
+              const randomIndex = Math.floor(Math.random() * ingredientesList.length);
+              const randomIngredient = ingredientesList[randomIndex].strIngredient1;
+      
+              // Verifica si el ingrediente ya se encuentra en el conjunto
+              if (!ingredientes.has(randomIngredient)) {
+                ingredientes.add(randomIngredient); // Agrega el ingrediente al conjunto
+      
+                const ingredientElement = document.createElement('div');
+                ingredientElement.classList.add('trago');
+                ingredientElement.textContent = randomIngredient;
+                card.appendChild(ingredientElement);
+      
+                const imgElement = document.createElement('img');
+                imgElement.src = `https://www.thecocktaildb.com/images/ingredients/${(randomIngredient)}-Medium.png`;
+                imgElement.alt = randomIngredient;
+                imgElement.classList.add('trago__imagen');
+                ingredientElement.appendChild(imgElement);
+      
+                ingredientElement.addEventListener('click', () => {
+                  // Busca todos los tragos que coinciden con el ingrediente seleccionado
+                  fetch(`https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=${randomIngredient}`)
+                    .then(response => response.json())
+                    .then(data => {
+                      showData(data);
+                    })
+                    .catch(error => console.log(error));
+                });
+                    
+              } else {
+                // Si el ingrediente ya se encuentra en el conjunto, vuelve a hacer la petición
+                fetchIngredient();
+              }
+            })
+            .catch(error => console.log(error));
+        };
+      
+        for (let i = 0; i < 8; i++) {
+          fetchIngredient();
+        }
+      };
 
