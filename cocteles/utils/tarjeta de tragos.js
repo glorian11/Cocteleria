@@ -112,3 +112,43 @@ export const randomDrinks = () => {
         }
       };
 
+
+      export const popularIngredient = () => {
+        const card = document.querySelector('.tarjeta4');
+        
+      
+        fetch(`https://www.thecocktaildb.com/api/json/v1/1/list.php?i=list`)
+          .then(response => response.json())
+          .then(data => {
+            const ingredientesList = data.drinks;
+      
+            // Selecciona 4 ingredientes estáticos de la lista
+            const staticIngredientes = ingredientesList.slice(0, 4);
+      
+            staticIngredientes.forEach(ingrediente => {
+              const ingredienteElement = document.createElement('div');
+              ingredienteElement.classList.add('trago');
+              ingredienteElement.textContent = ingrediente.strIngredient1;
+              card.appendChild(ingredienteElement);
+      
+              const imgElement = document.createElement('img');
+              imgElement.src = `https://www.thecocktaildb.com/images/ingredients/${ingrediente.strIngredient1}-Medium.png`;
+              imgElement.alt = ingrediente.strIngredient1;
+              imgElement.classList.add('trago__imagen');
+              ingredienteElement.appendChild(imgElement);
+      
+              ingredienteElement.addEventListener('click', () => {
+                  // Busca todos los tragos que coinciden con el ingrediente seleccionado
+                  fetch(`https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=${ingrediente.strIngredient1}`)
+                    .then(response => response.json())
+                    .then(data => {
+                      showData(data);
+                  })
+                  .catch(error => console.log(error));
+              });
+            });
+          })
+          .catch(error => console.log(error));
+      };
+      
+

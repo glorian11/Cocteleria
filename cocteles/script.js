@@ -8,7 +8,7 @@ const audioPlayer = document.getElementById('audioPlayer');
 
 
 const browser = document.querySelector('#browser');
-import { popularDrinks, randomDrinks, randomIngredient } from "./utils/tarjeta de tragos.js";
+import { popularDrinks, popularIngredient, randomDrinks, randomIngredient } from "./utils/tarjeta de tragos.js";
 import { showData } from "./utils/buscador por nombre.js";
 import { buscar } from "./utils/buscador por nombre.js";
 import { ABC } from "./utils/buscador por letra.js";
@@ -21,6 +21,7 @@ randomDrinks();
 audioPlayer.play();
 
 randomIngredient();
+popularIngredient();
 
 ABC();
 snow();
