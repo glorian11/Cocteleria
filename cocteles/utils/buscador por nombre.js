@@ -67,13 +67,16 @@ export async function buscar(e) {
     contenedor.innerHTML = '';
     const pergamino = document.createElement('div');
     const ingredientes = document.createElement('div');
+    pergamino.classList.add('pergamino');
     ingredientes.classList.add('ingredientes');
     
     console.log(data);
     const imgDrink = document.createElement('img');
+    imgDrink.classList.add('img-pergamino');
     imgDrink.src = data.drinks[0].strDrinkThumb;
     imgDrink.alt = data.drinks[0].strDrink;
-    
+    const solucion = document.createElement('div');
+    solucion.classList.add('solucion');
     
     
 
@@ -88,12 +91,12 @@ export async function buscar(e) {
   
     if (data.drinks[0].strAlcoholic === 'Alcoholic') {
       const pAlcohol = document.createElement('p');
-      pAlcohol.textContent = 'Alcoholico';
-      pergamino.appendChild(pAlcohol);
+      pAlcohol.textContent = 'Alcoholic';
+      solucion.appendChild(pAlcohol);
     } else {
       const pAlcohol = document.createElement('p');
-      pAlcohol.textContent = 'No Alcoholico';
-      pergamino.appendChild(pAlcohol);
+      pAlcohol.textContent = 'Non Alcoholic';
+      solucion.appendChild(pAlcohol);
     }
     const ingredients = [];
     for (let i = 1; i <= 15; i++) {
@@ -136,7 +139,7 @@ export async function buscar(e) {
     
     const pDrink = document.createElement('p');
     pDrink.textContent = data.drinks[0].strInstructions;
-    pergamino.appendChild(pDrink);
-
+    solucion.appendChild(pDrink);
+pergamino.appendChild(solucion);
     pergamino.appendChild(ingredientes);
   }

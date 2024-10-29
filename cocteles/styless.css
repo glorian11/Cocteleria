@@ -1,3 +1,4 @@
+
 body {
   display: grid;
   grid-template-columns: 1fr 4fr 1fr; 
@@ -326,4 +327,76 @@ background-image: url('utils/cubito-removebg-preview.png');
         transform: translateY(100vh) rotate(360deg);
       }
     }
-   
+    
+
+    @media  (max-width: 768px) {
+     body {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+     }
+
+     .snow-container {
+      display: flex;
+      position: absolute;
+     }
+     header {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      position: relative;
+     }
+     #contenedor {
+      display: flex;
+      max-width: 100vw;
+      flex-direction: column;
+      align-items: center;
+
+     }
+     .tarjeta1 {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+     }
+
+     .tarjeta2 {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    
+     }
+
+     .tarjeta3 {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+     }
+
+    #contenedor div{
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    
+      max-width: 100%;
+      margin: 0 auto;
+    }
+
+    #contenedor div img {
+      max-width: 100%;
+      margin: 0 auto;
+    }
+
+    #contenedor div p {
+      max-width: 100%;
+      margin: 0 auto;
+    }
+  
+       footer{
+        display: none;
+       }
+     
+      
+    
+   } 
+
+ 
