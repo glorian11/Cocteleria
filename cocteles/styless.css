@@ -197,12 +197,12 @@ header {
     bottom: 0;
     left: 0;
     width: 100%;
-    background-color: #aa2424;
+    
     padding: 10px;
     display: flex;
     justify-content: center;
     align-items: center;
-    border-top: 1px solid #ccc;
+    
   }
   
   #browser {
@@ -210,7 +210,7 @@ header {
     justify-content: space-around;
     align-items: center;
     width: 100%;
-    background-color: #aa2424
+    
   }
   
   #browser button {
@@ -407,6 +407,10 @@ background-image: url('utils/cubito-removebg-preview.png');
     
 
     @media  (max-width: 768px) {
+      .tarjeta-contacto {
+        visibility: hidden;
+      }
+
      body {
       display: flex;
       flex-direction: column;
@@ -477,7 +481,8 @@ background-image: url('utils/cubito-removebg-preview.png');
    } 
 
    .tarjeta-contacto {
-
+    display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     gap: 20px;
@@ -487,31 +492,56 @@ background-image: url('utils/cubito-removebg-preview.png');
     grid-row-end: 3;
     text-align: center;
     border-color: #be0202;
-    border-radius: auto;
+    border-radius: 50%;
     margin-top: 100px;
     gap: 20px;
     position: fixed;
-  
+   right: 10px;
+  }
+
+  .tarjeta-contacto div{
+    display: flex;
+
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    
+    font-family: "Retro Monkey";
+    font-size: 36px;
+    
+    color: #86312b;
+    text-align: center;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+ 
+  }
+  .tarjeta-contacto div p{
+    font-family: "Retro Monkey";
+    font-size: 36px;
+    color: #e2c13c;
+    text-align: center;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+    margin: 0%;
+    
+  }
+  .linkedin img{
+    height: 100px;
+    width: 200px;
+    margin: 0%;
+    
+
+  }
+
+  .linkedin img :hover{
+    transform: scale(1.1) rotate(10deg);
+    transition: all 0.3s ease-in-out;
   }
   
-  .contacto1 {
-  
-  
+  .github img{
+    height: 100px;
     width: 200px;
-    height: 200px;
-    background-color: #440707;
-    margin-top: 20px;
-    margin-left: 20px;
-  
-  
-  
-  
-    }
-  
-    .contacto2 {
-      width: 200px;
-      height: 200px;
-      background-color: #440707;
-      margin-top: 20px;
-      margin-left: 20px;
-    }
+  }
+
