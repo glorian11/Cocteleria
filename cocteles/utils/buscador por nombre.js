@@ -3,6 +3,11 @@
 
 export async function buscar(e) {
   e.preventDefault();
+  if (!input.value) {
+    alert('Por favor ingresa un nombre ');
+    return;
+  }
+  else {
   const contenedor = document.querySelector('#contenedor');
   contenedor.innerHTML = '';
   
@@ -19,15 +24,21 @@ export async function buscar(e) {
       showData(data);
     })
     .catch(error => console.log('Error:', error));
+
+  }
 }
 
   export async function showData(data) {
    console.log(data);
+    
     const contenedor = document.querySelector('#contenedor');
     contenedor.innerHTML = '';
    
-    if (data.drinks == null) {
-      contenedor.innerHTML = 'No se encontraron resultados';
+    if (data.drinks == null ) {
+      const h1 = document.createElement('h1');
+      h1.textContent = 'No se encontraron resultados :-(';
+      h1.className = 'no-results';
+      contenedor.appendChild(h1);
       return;
     }
     else if (data.drinks.length === 1) {
@@ -39,6 +50,7 @@ export async function buscar(e) {
     }
     for (let i = 0; i < data.drinks.length; i++) {
       const div = document.createElement('div');
+      div.classList.add('trago');
       contenedor.appendChild(div);
       const img = document.createElement('img');
       const h2 = document.createElement('h2');

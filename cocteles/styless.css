@@ -3,7 +3,8 @@ body {
   display: grid;
   grid-template-columns: 1fr 4fr 1fr; 
   grid-template-rows: 1fr 4fr 4fr 4fr 4fr  1fr ;
-  background-color: #f0e0e0;
+  background-color: #611919;
+  position: relative;
   }
 
 
@@ -18,7 +19,8 @@ header {
     left: 0;
     width: 100%;
     background-color: #aa2424;
-    padding: 20px;
+    border-radius: 10px;
+    
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -93,43 +95,99 @@ header {
     margin-top: 100px;
     gap: 20px;
   }
-
+ .no-results {
+  background-image: linear-gradient(to bottom, #f5f5dc, #fff);
+  background-attachment: fixed;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  font-family: "Retro Monkey";
+  font-size: 36px;
+  color: #1a170b;
+  text-align: center;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+  }
   
   
 
   
-  #contenedor div {
+  .pergamino {
     background-image: linear-gradient(to bottom, #f5f5dc, #fff);
     background-attachment: fixed;
     padding: 20px;
     border: 1px solid #ccc;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-    font-family: 'Playfair Display', serif;
-    font-size: 36px;
-    color: #333;
-    text-align: center;
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+    
+  
+    
   }
 
-
-
-
-  #contenedor div h2{
-    background-image: linear-gradient(to bottom, #f5f5dc, #fff);
-    background-attachment: fixed;
-    padding: 20px;
-    border: 1px solid #ccc;
+  .pergamino img {
+    max-width: 100%;
+    height: auto;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-    font-family: 'Playfair Display', serif;
-    font-size: 36px;
-    color: #333;
-    text-align: center;
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
-    margin-bottom: 20px;
   }
+
+  .ingredientes img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: none;
+  }
+
+  .ingredientes img:hover {
+    transform: scale(1.1);
+        rotate: 10deg;
+        transition: all 0.3s ease-in-out;
+  }
+.solucion {
   
+  padding: 20px;
+  
+  border-radius: 10px;
+  
+  font-family: 'Playfair Display', serif;
+  font-size: 36px;
+  
+  text-align: center;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+  }
+.ingredientes {
+  background-image: linear-gradient(to bottom, #f5f5dc, #fff);
+  background-attachment: fixed;
+  padding: 20px;
+  
+  font-family: 'Playfair Display', serif;
+  font-size: 36px;
+  color: #333;
+  text-align: center;
+  border:
+  3px solid #be5a5a;
+  border-radius: 10px;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+  }
+
+  .ingredientes img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+    
+  }
+.pergamino h2 {
+  font-size: 36px;
+  color: #a83c3c;
+  text-align: center;
+  text-shadow: 4px 2px 2px rgba(105, 98, 28, 0.2);
+  font-family: "Retro Monkey";
+  text-align: center;
+  
+}
+
+
+ 
 
 
   
@@ -228,6 +286,8 @@ header {
     height: 100%;
     object-fit: cover;
     align-items: center;
+border-bottom-left-radius: 10px;
+border-bottom-right-radius: 10px;
 
   }
    
@@ -239,15 +299,19 @@ header {
     font-family: 'Retro Monkey';
     font-size: 36px;
     color: #3d0404;
+    
     text-align: center;
     text-shadow: #e0e073 1px 1px 2px;
+    background-color: #f5f5dc;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
     }
 
     .trago:hover {
       transform: scale(1.1) rotate(10deg);
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-      background-color: #ccc;
-      color: #fff;
+      
+      
+      
       transition: all 0.3s ease-in-out;
     }
 
@@ -301,7 +365,7 @@ header {
       left: 0;
       width: 100%;
       height: 100%;
-      background-image: radial-gradient(rgb(148, 37, 37), rgba(37, 141, 45, 0));
+      background-image: radial-gradient(rgb(168, 135, 135), rgba(37, 141, 45, 0));
       background-position: 0% 0%;
       animation: rgb(163, 150, 150) 10s linear infinite;
     }
@@ -412,4 +476,42 @@ background-image: url('utils/cubito-removebg-preview.png');
     
    } 
 
- 
+   .tarjeta-contacto {
+
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    grid-column-start: 3;
+    grid-column-end: 4;
+    grid-row-start: 2;
+    grid-row-end: 3;
+    text-align: center;
+    border-color: #be0202;
+    border-radius: auto;
+    margin-top: 100px;
+    gap: 20px;
+    position: fixed;
+  
+  }
+  
+  .contacto1 {
+  
+  
+    width: 200px;
+    height: 200px;
+    background-color: #440707;
+    margin-top: 20px;
+    margin-left: 20px;
+  
+  
+  
+  
+    }
+  
+    .contacto2 {
+      width: 200px;
+      height: 200px;
+      background-color: #440707;
+      margin-top: 20px;
+      margin-left: 20px;
+    }
